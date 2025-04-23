@@ -1,0 +1,18 @@
+<?php
+namespace App\Enums;
+
+enum Status: int
+{
+    case PENDING = 0;
+    case IN_PROGRESS = 1;
+    case DONE = 2;
+
+    public function label(): string
+    {
+        return match ($this) {
+            self::PENDING => 'Ожидает',
+            self::IN_PROGRESS => 'В процессе',
+            self::DONE => 'Выполнена',
+        };
+    }
+}
